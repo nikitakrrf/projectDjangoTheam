@@ -16,8 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#from wcapi.views import WcapiAPIView, WcapiAPIViewDelete
+from wcapi.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/themes', ThemesAPIView.as_view()),
+    path('api/v1/themes/category', ThemesCategoryAPIView.as_view()),
+    path('api/v1/themes/amount', ThemesAmountAPIView.as_view()),
+    path('api/v1/add/theme', ThemesThemeAddAPIView.as_view()),
+    path('api/v1/delete/theme', ThemesThemeDelAPIView.as_view()),
+    path('api/v1/theme/add/widgets', ThemesThemeAddWidgetsAPIView.as_view()),
+    path('api/v1/theme/del/widgets', ThemesThemeDelWidgetsAPIView.as_view()),
+    path('api/v1/theme/add/icon', ThemesThemeAddIconAPIView.as_view()),
+    path('api/v1/theme/del/icon', ThemesThemeDelIconAPIView.as_view()),
+    path('api/v1/theme/add/wallpapers', ThemesThemeAddWallpapersAPIView.as_view()),
+    path('api/v1/theme/del/wallpapers', ThemesThemeDelWallpapersAPIView.as_view()),
 ]
